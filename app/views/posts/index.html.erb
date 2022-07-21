@@ -1,0 +1,12 @@
+<h3>Receipe Index</h3>
+<% @posts.each do |post| %>
+ <p><%= post.titles %></p>
+ <p><%= post.receipes %></p>
+ <div>
+  <%= link_to "Detail", post_path(post.id) %>
+  <%= link_to "Edit", edit_post_path(post.id) %>
+  <%= link_to "Delete", post_path(post.id), method: :delete %> 
+ </div>
+<% end %>
+
+<%= link_to "New Psot", new_post_path %>
