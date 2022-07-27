@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
     before_action :move_to_index, except: :index
     
+    
     def index
-        @posts = Post.all
+        @posts = Post.includes(:user)
     end
     
     def new
@@ -20,23 +21,34 @@ class PostsController < ApplicationController
     
     def edit
         @post = Post.find(params[:id])
+        unless @post.user == current_user
+            redirect_to root_path
+        end
     end
     
     def update
         @post = Post.find(params[:id])
-        @post.update(post_params)
-        redirect_to root_path
+        if @post.user == current_user
+            @post.update(post_params)
+            redirect_to root_path
+        else
+            redirect_to root_path
+        end
     end
     
     def destroy
         @post = Post.find(params[:id])
-        @post.destroy
-        redirect_to root_path, notice: "Delete Completed"
+        if @post.user == current_user
+            @post.destroy
+            redirect_to root_path, notice: "Delete Completed"
+        else
+            redirect_to root_path
+        end
     end
     
     private
     def post_params
-        params.require(:post).permit(:titles, :images, :receipes)
+        params.require(:post).permit(:titles, :images, :receipes).merge(user_id: current_user.id)
     end
     
     def move_to_index

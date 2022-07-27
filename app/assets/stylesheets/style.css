@@ -1,0 +1,86 @@
+body{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Application.html.erb */
+
+header{
+    background-color: lightgreen;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.header_title{
+    font-size: 30px;
+    color: #ffffff;
+    margin-left: 10; 
+    text-decoration: none;
+}
+
+.nav_bar{
+    width: 400px;
+    display: flex;
+    justify-content:space-around;
+    list-style-type: none;
+}
+
+.nav_list{
+    font-size: 20px;
+    margin-left: 10px;
+    color: #ffffff;
+}
+
+.link{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+main{
+    padding: 0 50px;
+    
+}
+
+footer{
+    color: #ffffff;
+    text-align: center;
+    background-color: lightgreen;
+}
+
+/* Index */
+.index_title{
+    text-align: center;
+}
+
+.index_content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.post_content{
+    width: 30%;
+    border: 1px solid black;
+    margin: 20px 10px;
+    padding: 10px;
+}
+
+.post_title{
+    text-align: center;
+}
+
+.poster{
+    text-align: right;
+}
+
+.image_box{
+    margin: 10px auto;
+    width: 300px;
+    height: 250px
+}
+
+.image{
+    width: 100%;
+}

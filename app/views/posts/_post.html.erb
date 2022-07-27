@@ -1,0 +1,23 @@
+<% if current_page?(root_path) %>
+<div class = "post_content">
+ <div class = "upper_content">
+  <p class = "post_title"><%= post.titles %></p>
+  <p class = "poster">By <%= link_to post.user.name, "/users/#{post.user_id}", method: :get %></p>
+  <div class = "image_box"><%= image_tag post.images, class: "image"%></div>
+  <p class = "post_receipe"><%= post.receipes %></p>
+ </div>
+ <div>
+  <%= link_to "Detail", post_path(post.id) %>
+  <%= link_to "Edit", edit_post_path(post.id) %>
+  <%= link_to "Delete", post_path(post.id), method: :delete %> 
+ </div>
+ </div>
+<% else %>
+ <p><%= post.titles %></p>
+ <p><%= post.receipes %></p>
+ <div>
+  <%= link_to "Detail", post_path(post.id) %>
+  <%= link_to "Edit", edit_post_path(post.id) %>
+  <%= link_to "Delete", post_path(post.id), method: :delete %> 
+ </div>
+<% end %>

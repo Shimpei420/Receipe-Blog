@@ -1,6 +1,3 @@
 <%= form_with model: @post, local: true do |form| %>
- <%= form.text_field :titles, placeholder: "Title"%>
- <%= form.text_field :images, placeholder: "Image URL" %>
- <%= form.text_field :receipes, placeholder: "Receipe" %>
- <%= form.submit value = "SEND" %>
+ <%= render partial: "posts/form", locals: {form: form} %>
 <% end %>

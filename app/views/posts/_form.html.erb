@@ -1,0 +1,11 @@
+<% if current_page?(new_post_path) %>
+ <%= form.text_field :titles, placeholder: "Title"%>
+ <%= form.text_field :images, placeholder: "Image URL" %>
+ <%= form.text_field :receipes, placeholder: "Receipe" %>
+ <%= form.submit value = "SEND" %>
+<% else %>
+ <%= form.text_field :titles, placeholder: "Title"%>
+ <%= form.text_field :images, placeholder: "Image URL" %>
+ <%= form.text_field :receipes, placeholder: "Receipe" %>
+ <%= form.submit value = "UPDATE" %>
+<% end %>
