@@ -13,8 +13,20 @@
   <div>
    <p>Comment</p>
     <% @comments.each do |comment| %>
-     <%= comment.text %>
-     <%= comment.user.name %>
+    <div>
+     <%= comment.comment %>
+     By <%= comment.user.name %>
+     <%= link_to "Delete", post_comment_path(@post, comment), method: :delete %>
+     </div>
+    <% end %>
+    <% if user_signed_in? %>
+     <%= form_with model: [@post, @comment] do |form| %>
+      <%= form.text_field :comment, placeholder: "Comment" %>
+      <%= form.submit value = "Post" %>
+     <% end %>
+    <% else %>
+     <p>@@ You need to sign in to post the comment @@</p>
+     <%= link_to "Sign In", new_user_session_path %> / <%= link_to "Sign Up", new_user_registration_path %>
     <% end %>
   </div>
  <div>
