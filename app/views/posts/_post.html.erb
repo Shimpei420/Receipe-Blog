@@ -15,7 +15,7 @@
  <div class = "button">
   <%= link_to "More", post_path(post.id), class: "more_button"%>
  </div>
- </div>
+</div>
 <% else %>
 <%# My page %>
  <div class = "post_content">
@@ -35,8 +35,8 @@
   </div>
   <div class = "button">
    <%= link_to "More", post_path(post.id), class: "more_button"%>
-   <%= link_to "Edit", edit_post_path(post.id) %>
-   <%= link_to "Delete", post_path(post.id), method: :delete %> 
+   <%= link_to "Edit", edit_post_path(post.id), class: "edit_button" %>
+   <%= link_to "Delete", post_path(post.id), method: :delete, class: "delete_button" %> 
  </div>
  </div>
 <% end %>

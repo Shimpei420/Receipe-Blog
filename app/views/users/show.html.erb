@@ -1,4 +1,9 @@
-<h3><%=@user.name %>'s Index</h3>
+<h3 class = "mypage_title"><%=@user.name %>'s Index</h3>
+<div class = "index_content">
 <% @posts.each do |post| %>
  <%= render partial: "posts/post", locals: {post: post} %>
 <% end %>
+</div>
+<div>
+  <%= paginate @posts %>
+ </div>

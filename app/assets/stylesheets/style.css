@@ -58,7 +58,7 @@ footer{
 .index_content{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
 }
 
 .post_content{
@@ -98,6 +98,87 @@ footer{
     text-align: right;
 }
 
-.more_button{
+.more_button, .edit_button, .delete_button{
     text-decoration: none;
+    margin-right: 10px;
 }
+
+.search_form{
+    text-align: right;
+}
+
+.search_bar{
+    width: 200px;
+}
+
+.search_btn{
+    margin-right: 10px
+}
+
+/* Slide Show */
+
+.slide_content{
+    height: 300px;
+    width: 50%;
+    margin:20px 0;
+}
+.slide_pic_box{
+    width: 100%;
+}
+
+.slide_pic{
+    height: 100%;
+    width: 100%;
+}
+
+
+/* Detail page */
+.detail_post_content{
+    width: 100%;
+    justify-content: center;
+}
+
+/* Mypage */
+.mypage_title{
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Comment */
+
+.comment_title{
+    font-size: 20px;
+    text-align: center;
+}
+
+.comment_content{
+    text-align: center;
+    margin: 15px auto;
+}
+
+.comment_delete{
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.comment_form_content{
+    text-align: center
+}
+
+.comment_form{
+    width: 300px;
+}
+
+.comment_warning_content{
+    text-align: center;
+}
+
+.comment_warning{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.comment_signin, .comment_signup{
+    text-decoration: none
+}
+

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     
     
     def index
-        @posts = Post.includes(:user).order(created_at: :desc)
+        @posts = Post.includes(:user).order(created_at: :desc).page(params[:page]).per(9)
     end
     
     def new
@@ -46,6 +46,12 @@ class PostsController < ApplicationController
         else
             redirect_to root_path
         end
+    end
+    
+   def search
+       @posts = Post.search(params[:keyword]).page(params[:page]).per(9)
+       @keyword = params[:keyword]
+       render "index"
     end
     
     private

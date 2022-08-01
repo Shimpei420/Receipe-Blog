@@ -1,6 +1,21 @@
 <h3 class = "index_title">Receipe Index</h3>
+<div class = "search_form">
+ <%= form_with url: search_path, method: :get, local: true do |form| %>
+  <%= form.text_field :keyword, value: @keyword, class: "search_bar" %>
+  <%= form.submit value = "Search", class: "search_btn" %>
+ <% end %>
+</div>
+<div class = "slide_content">
+ <div class = "slide_pic_box"><%= image_tag "slide_pic1", class: "slide_pic" %></div>
+ <div class = "slide_pic_box"><%= image_tag "slide_pic2", class: "slide_pic" %></div>
+ <div class = "slide_pic_box"><%= image_tag "slide_pic3", class: "slide_pic" %></div>
+ <div class = "slide_pic_box"><%= image_tag "slide_pic4", class: "slide_pic" %></div>
+</div>
 <div class = "index_content">
  <% @posts.each do |post| %>
   <%= render partial: "posts/post", locals: {post: post} %>
  <% end %>
+</div>
+<div>
+ <%= paginate @posts %>
 </div>

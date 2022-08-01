@@ -1,4 +1,4 @@
-<div class = "post_content">
+<div class = "detail_post_content">
   <div class = "upper_content">
    <p class = "post_title"><%= @post.titles %></p>
    <p class = "poster">By <%= link_to @post.user.name, "/users/#{@post.user_id}", method: :get %></p>
@@ -11,22 +11,26 @@
    <p class = "post_receipe"><%= @post.receipes %></p>
   </div>
   <div>
-   <p>Comment</p>
+   <p class = "comment_title">Comment</p>
     <% @comments.each do |comment| %>
-    <div>
+    <div class = "comment_content">
      <%= comment.comment %>
      By <%= comment.user.name %>
-     <%= link_to "Delete", post_comment_path(@post, comment), method: :delete %>
+     <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, class: "comment_delete" %>
      </div>
     <% end %>
     <% if user_signed_in? %>
+    <div class = "comment_form_content">
      <%= form_with model: [@post, @comment] do |form| %>
-      <%= form.text_field :comment, placeholder: "Comment" %>
+      <%= form.text_field :comment, placeholder: "Comment", class: "comment_form" %>
       <%= form.submit value = "Post" %>
+    </div>
      <% end %>
     <% else %>
-     <p>@@ You need to sign in to post the comment @@</p>
-     <%= link_to "Sign In", new_user_session_path %> / <%= link_to "Sign Up", new_user_registration_path %>
+    <div class = "comment_warning_content">
+     <p class = "comment_warning">@@ You need to sign in to post the comment @@</p>
+     <%= link_to "Sign In", new_user_session_path, class: "comment_signin"%> / <%= link_to "Sign Up", new_user_registration_path, class: "comment_signup" %>
+     </div>
     <% end %>
   </div>
  <div>

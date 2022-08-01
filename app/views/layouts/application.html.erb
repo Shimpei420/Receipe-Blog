@@ -10,7 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
@@ -24,7 +26,7 @@
          <li class = "nav_list"><%= link_to "New Post", new_post_path, class: "link" %></li>
        </ul>
       <% else %>
-       <ul>
+       <ul class = "nav_bar">
          <li class = "nav_list"><%= link_to "Sign In", new_user_session_path, class: "link" %></li>
          <li class = "nav_list"><%= link_to "Sign Up", new_user_registration_path, class: "link" %></li>
        </ul>
