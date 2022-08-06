@@ -1,7 +1,4 @@
 <%= form_with model: @post, local: true do |form| %>
  <%= render partial: "posts/form", locals: {form: form} %>
 <% end %>
-<div>
- <%= link_to "Delete", post_path(@post.id), method: :delete %> 
- <%= link_to "Back", root_path %>
-</div>
+

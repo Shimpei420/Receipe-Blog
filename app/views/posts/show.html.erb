@@ -21,7 +21,7 @@
     <% end %>
     <% if user_signed_in? %>
     <div class = "comment_form_content">
-     <%= form_with model: [@post, @comment] do |form| %>
+     <%= form_with model: [@post, @comment], local: true do |form| %>
       <%= form.text_field :comment, placeholder: "Comment", class: "comment_form" %>
       <%= form.submit value = "Post" %>
     </div>

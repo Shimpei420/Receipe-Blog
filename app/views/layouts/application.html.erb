@@ -6,30 +6,49 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0" >
   </head>
 
   <body>
     <header>
-      <%= link_to "Receipe Blog", root_path, class: "header_title"%>
+      <%= link_to "Receipe Blog", root_path, class: "header_title" %>
       <% if user_signed_in? %>
-       <ul class = "nav_bar">
-         <li class = "nav_list"><%= current_user.name %></li>
-         <li class = "nav_list"><%= link_to "My page", "/users/#{current_user.id}", class: "link" %></li>
-         <li class = "nav_list"><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "link" %></li>
-         <li class = "nav_list"><%= link_to "New Post", new_post_path, class: "link" %></li>
-       </ul>
+       <nav class = "header-nav">
+        <ul class = "nav_bar">
+          <li class = "nav_list"><%= current_user.name %></li>
+          <li class = "nav_list"><%= link_to "My page", "/users/#{current_user.id}", class: "link" %></li>
+          <li class = "nav_list"><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "link" %></li>
+          <li class = "nav_list"><%= link_to "New Post", new_post_path, class: "link" %></li>
+        </ul>
+       </nav>
+       <!-- burger button -->
+       <div class = "burger-btn">
+         <span class = "bar bar-top"></span>
+         <span class = "bar bar-middle"></span>
+         <span class = "bar bar-bottom"></span>
+       </div>
+       <!-- burger button -->
       <% else %>
-       <ul class = "nav_bar">
-         <li class = "nav_list"><%= link_to "Sign In", new_user_session_path, class: "link" %></li>
-         <li class = "nav_list"><%= link_to "Sign Up", new_user_registration_path, class: "link" %></li>
-       </ul>
+       <nav class = "header-nav">
+        <ul class = "nav_bar">
+          <li class = "nav_list"><%= link_to "Sign In", new_user_session_path, class: "link" %></li>
+          <li class = "nav_list"><%= link_to "Sign Up", new_user_registration_path, class: "link" %></li>
+        </ul>
+       </nav>
+        <!-- burger button -->
+       <div class = "burger-btn">
+         <span class = "bar bar-top"></span>
+         <span class = "bar bar-middle"></span>
+         <span class = "bar bar-bottom"></span>
+       </div>
+       <!-- burger button -->
       <% end %>
     </header>
     <main>

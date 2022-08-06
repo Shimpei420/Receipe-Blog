@@ -1,11 +1,20 @@
 <% if current_page?(new_post_path) %>
- <%= form.text_field :titles, placeholder: "Title"%>
- <%= form.text_field :images, placeholder: "Image URL" %>
- <%= form.text_field :receipes, placeholder: "Receipe" %>
- <%= form.submit value = "SEND" %>
+ <div class = "new_form">
+  <%= form.text_field :titles, placeholder: "Title", class: "new_title" %>
+  <%= form.text_field :images, placeholder: "Image URL", class: "new_image" %>
+  <%= form.text_area :receipes, placeholder: "Receipe", size: "40x20", class: "new_receipe" %>
+  <%= form.submit value = "SEND", class: "new_button" %>
+  <%= link_to "Back", root_path, class: "new_back" %>
+ </div>
 <% else %>
- <%= form.text_field :titles, placeholder: "Title"%>
- <%= form.text_field :images, placeholder: "Image URL" %>
- <%= form.text_field :receipes, placeholder: "Receipe" %>
- <%= form.submit value = "UPDATE" %>
+ <div class = "edit_form">
+  <%= form.text_field :titles, placeholder: "Title", class: "edit_title" %>
+  <%= form.text_field :images, placeholder: "Image URL", class: "edit_image" %>
+  <%= form.text_area :receipes, placeholder: "Receipe", size: "40x20", class: "edit_receipe" %>
+  <%= form.submit value = "UPDATE", class:"editbutton" %>
+  <div class = "editbuttons">
+   <%= link_to "Delete", post_path(@post.id), method: :delete, class: "edit_delete" %>  / 
+   <%= link_to "Back", root_path, class: "edit_back" %>
+  </div>
+ </div>
 <% end %>
